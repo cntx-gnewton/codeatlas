@@ -1,0 +1,49 @@
+{
+  "name": "codeatlas",
+  "displayName": "CodeAtlas",
+  "description": "CodeAtlas is a powerful Visual Studio Code extension designed to help developers navigate their codebase with ease. It generates a comprehensive text file that represents your entire project structure, including the content of all files. With CodeAtlas, you can get a bird's eye view of your project, making it easier to understand the overall architecture and find specific pieces of code. Whether you're diving into a new project, documenting your work, or just trying to make sense of a complex codebase, CodeAtlas is the perfect tool to map your code journey. Navigate your code like never before with CodeAtlas.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeatlas.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.78.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2",
+    "@vscode/test-electron": "^2.3.0"
+  }
+}
