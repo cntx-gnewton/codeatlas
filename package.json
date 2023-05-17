@@ -3,6 +3,8 @@
   "displayName": "CodeAtlas",
   "description": "CodeAtlas is a powerful Visual Studio Code extension designed to help developers navigate their codebase with ease. It generates a comprehensive text file that represents your entire project structure, including the content of all files. With CodeAtlas, you can get a bird's eye view of your project, making it easier to understand the overall architecture and find specific pieces of code. Whether you're diving into a new project, documenting your work, or just trying to make sense of a complex codebase, CodeAtlas is the perfect tool to map your code journey. Navigate your code like never before with CodeAtlas.",
   "version": "0.0.1",
+  "publisher": "gnnewton",
+  "repository": "https://github.com/cntx-gnewton/codeatlas",
   "engines": {
     "vscode": "^1.78.0"
   },
@@ -12,12 +14,31 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "codeatlas.helloWorld",
-        "title": "Hello World"
-      }
-    ]
+      "commands": [
+        {
+            "command": "codeatlas.exportCodebase",
+            "title": "Export Codebase to Text"
+        },
+        {
+            "command": "codeatlas.exportCodebaseToMarkdown",
+            "title": "Export Codebase to Markdown"
+        }
+      ],
+    "configuration": {
+        "title": "CodeAtlas",
+        "properties": {
+            "codeatlas.include": {
+                "type": "array",
+                "default": ["**/*"],
+                "description": "List of paths for files/folders to include in the codebase export."
+            },
+            "codeatlas.exclude": {
+                "type": "array",
+                "default": [".jpg",".svg",".png",".ico",".gitignore"],
+                "description": "List of file extensions to exclude from the codebase export."
+            }
+        }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
